@@ -106,3 +106,13 @@ C:\Users\user\Desktop\FiestStore\obj\Debug\net5.0\FiestStore.dll
 C:\Users\user\Desktop\FiestStore\obj\Debug\net5.0\ref\FiestStore.dll
 C:\Users\user\Desktop\FiestStore\obj\Debug\net5.0\FiestStore.pdb
 C:\Users\user\Desktop\FiestStore\obj\Debug\net5.0\FiestStore.genruntimeconfig.cache
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\System.Text.Encodings.Web.dll

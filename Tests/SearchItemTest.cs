@@ -11,8 +11,8 @@ namespace FiestStore.Tests
         [Test]
         public async Task SearchItem()
         {
-            await Startup.homePage.SearchItem(SEARCH_ITEM);
-            await Startup.itemPage.ValidateCorrectPage();
+            // await HomePage.SearchItem(SEARCH_ITEM);
+            // await ItemPage.ValidateCorrectPage();
         }
     }
 }
