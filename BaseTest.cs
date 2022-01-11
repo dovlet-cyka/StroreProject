@@ -9,7 +9,7 @@ namespace FiestStore
     {
         private const string LINK_TO_WEBSITE = "http:\\automationpractice.com\\index.php";
         // private const string CHROMIUM_LOACTION = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-        private const string CHROMIUM_LOACTION = "/usr/bin/chromium";
+        private const string CHROMIUM_LOACTION = "/usr/bin/chromium-browser";
 
         protected Startup Startup;
         
@@ -26,7 +26,7 @@ namespace FiestStore
 
             IBrowser browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions()
             {
-                Headless = false/*, Channel = "chrome"*/, ExecutablePath = CHROMIUM_LOACTION, SlowMo = 50
+                Headless = true/*, Channel = "chrome"*/, ExecutablePath = CHROMIUM_LOACTION
             });
 
             IBrowserContext context = await browser.NewContextAsync();
