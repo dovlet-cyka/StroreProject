@@ -8,8 +8,8 @@ namespace FiestStore
     public class BaseTest
     {
         private const string LINK_TO_WEBSITE = "http:\\automationpractice.com\\index.php";
-        private const string CHROMIUM_LOACTION = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-        // private const string CHROMIUM_LOACTION = "/usr/bin/chromium-browser";
+        // private const string CHROMIUM_LOACTION = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+        private const string CHROMIUM_LOACTION = "/usr/bin/chromium-browser";
 
         protected Startup Startup;
         
