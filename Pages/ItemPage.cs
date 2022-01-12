@@ -17,7 +17,6 @@ namespace FiestStore.Pages
 
         public async Task<string> ValidateCorrectPage()
         {
-            Assert.IsTrue(false);
             return await _page.InnerTextAsync(CURRENT_PAGE_CSS);
         }
     }
