@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Playwright;
+using NUnit.Framework;
 
 namespace FiestStore.Pages
 {
@@ -16,6 +17,7 @@ namespace FiestStore.Pages
 
         public async Task<string> ValidateCorrectPage()
         {
+            Assert.IsTrue(false);
             return await _page.InnerTextAsync(CURRENT_PAGE_CSS);
         }
     }
