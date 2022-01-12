@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FiestStore.Config;
 using FiestStore.Pages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,13 +11,10 @@ namespace FiestStore
 {
     public class BaseTest
     {
-        private IConfiguration _config;
-        
-        protected ItemPage ItemPage { get; set; }
-        protected HomePage HomePage { get; set; } 
-        
-        public string URL { get; set; }
-        public string websiteUrl { get; set; }
+        protected ItemPage ItemPage { get; private set; }
+        protected HomePage HomePage { get; private set; }
+
+        private ChromiumConfig _chromiumConfig;
 
         [SetUp]
         public void Start()
@@ -24,15 +22,8 @@ namespace FiestStore
             IConfigurationRoot config = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json").Build();
+            _chromiumConfig = config.GetSection("Chromium").Get<ChromiumConfig>();
 
-
-            IConfigurationSection section = config.GetSection("Chromium");
-            BaseTest weatherClientConfig = section.Get<BaseTest>();
-            Console.WriteLine(weatherClientConfig.URL);
-            Console.WriteLine(URL);
-            Console.WriteLine("Finish");
-            
-            
             Startup startup = new Startup(GetPageObject().Result, new ServiceCollection());
             ItemPage = startup.ServiceProvider.GetService<ItemPage>();
             HomePage = startup.ServiceProvider.GetService<HomePage>();
@@ -44,13 +35,13 @@ namespace FiestStore
 
             IBrowser browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions()
             {
-                Headless = false, ExecutablePath = _config["chromiumSettings:URL"]
+                Headless = _chromiumConfig.Headless, ExecutablePath = _chromiumConfig.ChromiumPathLinux
             });
 
             IBrowserContext context = await browser.NewContextAsync();
             IPage page = await context.NewPageAsync();
 
-            await page.GotoAsync(_config["websiteUrl"]);
+            await page.GotoAsync(_chromiumConfig.WebsiteUrl);
             return page;
         }
     }
