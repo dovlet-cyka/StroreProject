@@ -33,7 +33,6 @@ namespace FiestStore
         {
             IPlaywright playwright = await Playwright.CreateAsync();
 
-            Console.WriteLine($"--------------{_chromiumConfig.ChromiumPathLinux}-------------------");
             IBrowser browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions()
             {
                 Headless = _chromiumConfig.Headless, ExecutablePath = _chromiumConfig.ChromiumPathLinux
