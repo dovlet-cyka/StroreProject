@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.Playwright;
 
 namespace FiestStore.Pages
@@ -19,11 +18,6 @@ namespace FiestStore.Pages
         {
             await _page.FillAsync(SEARCH_ITEMS_INPUT_CSS, searchText);
             await _page.PressAsync(SEARCH_ITEMS_INPUT_CSS, "Enter");
-        }
-
-        public void PrintHello()
-        {
-            Console.WriteLine("Hello");
         }
     }
 }

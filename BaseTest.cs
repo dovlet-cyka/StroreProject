@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using FiestStore.Pages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 using NUnit.Framework;
 
@@ -12,16 +13,29 @@ namespace FiestStore
         private IConfiguration _config;
         
         protected ItemPage ItemPage { get; set; }
-        protected HomePage HomePage { get; set; }
+        protected HomePage HomePage { get; set; } 
+        
+        public string URL { get; set; }
+        public string websiteUrl { get; set; }
 
         [SetUp]
         public void Start()
         {
-            _config = InitConfiguration();
-            Console.WriteLine(_config["websiteUrl"]);
-            // Startup startup = new Startup(GetPageObject().Result);            
-            // ItemPage = startup.ServiceProvider.GetService<ItemPage>();
-            // HomePage = startup.ServiceProvider.GetService<HomePage>();
+            IConfigurationRoot config = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json").Build();
+
+
+            IConfigurationSection section = config.GetSection("Chromium");
+            BaseTest weatherClientConfig = section.Get<BaseTest>();
+            Console.WriteLine(weatherClientConfig.URL);
+            Console.WriteLine(URL);
+            Console.WriteLine("Finish");
+            
+            
+            Startup startup = new Startup(GetPageObject().Result, new ServiceCollection());
+            ItemPage = startup.ServiceProvider.GetService<ItemPage>();
+            HomePage = startup.ServiceProvider.GetService<HomePage>();
         }
 
         private async Task<IPage> GetPageObject()
@@ -39,18 +53,5 @@ namespace FiestStore
             await page.GotoAsync(_config["websiteUrl"]);
             return page;
         }
-        
-        public static IConfiguration InitConfiguration()
-        {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("C:/Users/user/Desktop/FiestStore/appsettings.json")
-                .Build();
-            return config;
-        }
-        
-        
-        private const string LINK_TO_WEBSITE = "http:\\automationpractice.com\\index.php";
-        private const string CHROMIUM_LOACTION = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-        // private const string CHROMIUM_LOACTION = "/usr/bin/chromium-browser";
     }
 }
