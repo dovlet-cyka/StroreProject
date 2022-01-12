@@ -15,14 +15,14 @@ namespace FiestStore
         protected HomePage HomePage { get; private set; }
 
         private ChromiumConfig _chromiumConfig;
-
+        
         [SetUp]
         public void Start()
         {
             IConfigurationRoot config = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json").Build();
-            _chromiumConfig = config.GetSection("Chromium").Get<ChromiumConfig>();
+            _chromiumConfig = config.GetSection("ChromiumConfig").Get<ChromiumConfig>();
 
             Startup startup = new Startup(GetPageObject().Result, new ServiceCollection());
             ItemPage = startup.ServiceProvider.GetService<ItemPage>();
@@ -35,7 +35,7 @@ namespace FiestStore
 
             IBrowser browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions()
             {
-                Headless = _chromiumConfig.Headless, ExecutablePath = _chromiumConfig.ChromiumPathLinux
+                Headless = _chromiumConfig.Headless, ExecutablePath = _chromiumConfig.ChromiumPathWindows
             });
 
             IBrowserContext context = await browser.NewContextAsync();

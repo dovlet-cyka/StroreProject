@@ -3,7 +3,7 @@ using Microsoft.Playwright;
 
 namespace FiestStore.Pages
 {
-    public class HomePage : IMyPage
+    public class HomePage
     {
         private readonly IPage _page;
 

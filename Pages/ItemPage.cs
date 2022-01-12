@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Playwright;
-using NUnit.Framework;
 
 namespace FiestStore.Pages
 {
-    public class ItemPage : IMyPage
+    public class ItemPage 
     {
         private readonly IPage _page;
 
