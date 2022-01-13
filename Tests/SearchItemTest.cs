@@ -4,12 +4,14 @@ using NUnit.Framework;
 namespace FiestStore.Tests 
 {
     [TestFixture]
-    public class SearchItemTest : BaseTest 
+    public class SearchItemTest : BaseTest
     {
+        private const string SEARCH_ITEM_TEXT = "T-shirt";
+        
         [Test]
         public async Task SearchItem()
         {
-            await HomePage.SearchItem(SearchItemVariables.SearchItem);
+            await HomePage.SearchItem(SEARCH_ITEM_TEXT);
             await ItemPage.ValidateCorrectPage();
         }
     }

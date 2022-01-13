@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using FiestStore.Config;
-using FiestStore.jsonSchemaInjection.variables;
 using FiestStore.Pages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,45 +11,56 @@ namespace FiestStore
 {
     public class BaseTest
     {
-        protected ItemPage ItemPage { get; private set; }
-        protected HomePage HomePage { get; private set; }
-        protected SearchItemVariables SearchItemVariables { get; private set; }
+        protected ItemPage ItemPage;
+        protected HomePage HomePage;
 
-        private ChromiumConfig _chromiumConfig;
+        private const string WEBSITE_URL = "http:/automationpractice.com/index.php/";
+        
+        private WebsiteConfig _websiteConfig;
+        private IPlaywright _playwright;
+        private IBrowser _browser;
+        private IPage _page;
 
         [SetUp]
         public void Start()
         {
-            _chromiumConfig = InitializeJsonFileProvider("appsettings.json")
-                .GetSection("ChromiumConfig").Get<ChromiumConfig>();
-            SearchItemVariables = InitializeJsonFileProvider("SearchItem.json", "..\\..\\..\\jsonSchemaInjection\\jsons").
-                GetSection("SearchItem").Get<SearchItemVariables>();
+            _websiteConfig = InitializeJsonFileProvider("appsettings.json")
+                .GetSection("WebsiteConfig").Get<WebsiteConfig>();
 
-            Startup startup = new Startup(new ServiceCollection(),  GetPageObject().Result);
+            InitializePageObject().Wait();
+            Startup startup = new Startup(new ServiceCollection(), _page);
             ItemPage = startup.ServiceProvider.GetService<ItemPage>();
             HomePage = startup.ServiceProvider.GetService<HomePage>();
+            
+            _page.GotoAsync(WEBSITE_URL);
         }
 
-        private IConfigurationRoot InitializeJsonFileProvider(string jsonFile, string link="")
+        [TearDown]
+        public void End()
+        {
+            _playwright.Dispose();
+            _browser.CloseAsync();
+            _page.CloseAsync();
+        }
+        
+        private IConfigurationRoot InitializeJsonFileProvider(string jsonFile)
         {
             return new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory + link)
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile(jsonFile).Build();
         }
 
-        private async Task<IPage> GetPageObject()
+        private async Task InitializePageObject()
         {
-            IPlaywright playwright = await Playwright.CreateAsync();
+            _playwright = await Playwright.CreateAsync();
 
-            IBrowser browser = await playwright[_chromiumConfig.BrowserType].LaunchAsync(new BrowserTypeLaunchOptions
+            _browser = await _playwright[_websiteConfig.BrowserType].LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = _chromiumConfig.Headless, ExecutablePath = _chromiumConfig.ChromiumPathWindows
+                Headless = _websiteConfig.Headless, 
+                ExecutablePath = _websiteConfig.WebsiteLocationWindows
             });
             
-            IPage page = await browser.NewPageAsync();
-
-            await page.GotoAsync(_chromiumConfig.WebsiteUrl);
-            return page;
+            _page = await _browser.NewPageAsync();
         }
     }
 }
