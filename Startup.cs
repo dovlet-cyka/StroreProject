@@ -9,7 +9,7 @@ namespace FiestStore
     {
         public IServiceProvider ServiceProvider { get; }
 
-        public Startup(IPage page, IServiceCollection serviceCollection)
+        public Startup(IServiceCollection serviceCollection, IPage page)
         {
             serviceCollection.AddSingleton(page);
             serviceCollection.AddSingleton<HomePage>();

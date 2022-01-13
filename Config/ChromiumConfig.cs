@@ -6,5 +6,6 @@
         public string ChromiumPathLinux { get; set; }
         public string WebsiteUrl { get; set; }
         public bool Headless { get; set; }
+        public string BrowserType { get; set; }
     }
 }
