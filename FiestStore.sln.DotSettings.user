@@ -10,5 +10,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b51a96c5_002Ddb2e_002D4562_002D9636_002D3b1d9411ff74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SearchItemTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.BaseTest.InitializeAllPages&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FiestStore.Config;
 using FiestStore.Pages;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 using NUnit.Framework;
+using static System.AppDomain;
 
 namespace FiestStore
 {
@@ -15,24 +17,34 @@ namespace FiestStore
         protected HomePage HomePage;
 
         private const string WEBSITE_URL = "http:/automationpractice.com/index.php/";
-        
+        private const string JSON_FILE_NAME_WEBSITE_CONFIG = "appsettings.json";
+        private const string SECTION_JSON_FILE_WEBSITE_CONFIG = "WebsiteConfig";
+
         private WebsiteConfig _websiteConfig;
         private IPlaywright _playwright;
         private IBrowser _browser;
         private IPage _page;
-
+        private IConfiguration _configuration;
+        
         [SetUp]
-        public void Start()
+        public void InitializeAllPages()
         {
-            _websiteConfig = InitializeJsonFileProvider("appsettings.json")
-                .GetSection("WebsiteConfig").Get<WebsiteConfig>();
-
-            InitializePageObject().Wait();
-            Startup startup = new Startup(new ServiceCollection(), _page);
-            ItemPage = startup.ServiceProvider.GetService<ItemPage>();
-            HomePage = startup.ServiceProvider.GetService<HomePage>();
+            _configuration = new ConfigurationBuilder()
+                .SetBasePath(CurrentDomain.BaseDirectory)
+                .AddJsonFile(JSON_FILE_NAME_WEBSITE_CONFIG).Build();
+            _websiteConfig = _configuration.GetSection(SECTION_JSON_FILE_WEBSITE_CONFIG).Get<WebsiteConfig>();
             
-            _page.GotoAsync(WEBSITE_URL);
+            InitializePageObject().GetAwaiter().GetResult();
+            TestServer testServer = new TestServer(new WebHostBuilder()
+                .ConfigureServices(services =>
+                {
+                    services.AddSingleton(_page);
+                })
+                .UseStartup<Startup>());
+
+             _page.GotoAsync(WEBSITE_URL).GetAwaiter().GetResult();
+            HomePage = testServer.Services.GetService<HomePage>();
+            ItemPage = testServer.Services.GetService<ItemPage>();
         }
 
         [TearDown]
@@ -42,13 +54,6 @@ namespace FiestStore
             _browser.CloseAsync();
             _page.CloseAsync();
         }
-        
-        private IConfigurationRoot InitializeJsonFileProvider(string jsonFile)
-        {
-            return new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile(jsonFile).Build();
-        }
 
         private async Task InitializePageObject()
         {
@@ -56,10 +61,10 @@ namespace FiestStore
 
             _browser = await _playwright[_websiteConfig.BrowserType].LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = _websiteConfig.Headless, 
+                Headless = _websiteConfig.Headless,
                 ExecutablePath = _websiteConfig.WebsiteLocationWindows
             });
-            
+
             _page = await _browser.NewPageAsync();
         }
     }

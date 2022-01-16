@@ -1,5 +1,6 @@
 ﻿using System;
 using FiestStore.Pages;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 
@@ -7,16 +8,23 @@ namespace FiestStore
 {
     public class Startup
     {
-        public IServiceProvider ServiceProvider { get; }
+        // public IConfiguration Configuration { get; }
+        //
+        // public Startup(IConfiguration configuration)
+        // {
+        //     Configuration = configuration;
+        // }
 
-        public Startup(IServiceCollection serviceCollection, IPage page)
+        public void ConfigureServices(IServiceCollection services)
         {
-            serviceCollection.AddSingleton(page);
-            serviceCollection.AddSingleton<HomePage>();
-            serviceCollection.AddSingleton<ItemPage>();
-            serviceCollection.AddSingleton<BasePage>();                                                                 
+            services.AddSingleton<HomePage>();
+            services.AddSingleton<ItemPage>();
+            services.AddSingleton<BasePage>();
+        }
 
-            ServiceProvider = serviceCollection.BuildServiceProvider();
+        public void Configure(IPage page)
+        {
+            Console.WriteLine("DSA");
         }
     }
 }

@@ -5,7 +5,7 @@ namespace FiestStore.Tests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Self)]
-    public class SearchItemTest : BaseTest
+    public class SearchItemTest2 : BaseTest
     {
         private const string SEARCH_ITEM_TEXT = "T-shirt";
         
@@ -14,13 +14,7 @@ namespace FiestStore.Tests
         {
             await HomePage.SearchItem(SEARCH_ITEM_TEXT);
             await ItemPage.ValidateCorrectPage();
-        }
-        
-        [Test]
-        public async Task SearchItem2()
-        {
-            await HomePage.SearchItem(SEARCH_ITEM_TEXT);
-            await ItemPage.ValidateCorrectPage();
+            Assert.IsTrue(false);
         }
     }
 }
