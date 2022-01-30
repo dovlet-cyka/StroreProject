@@ -15,8 +15,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Test
-      run: (cd Chromium/; sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -f install)
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
