@@ -6,11 +6,27 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\cs\Microsoft.TestPlatform.CommunicationUtilities.resources.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\user\Desktop\FiestStore\bin\Debug\net5.0\ref\FiestStore.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\user\.nuget\packages\microsoft.playwright.nunit\1.17.3\lib\net5.0\Microsoft.Playwright.NUnit.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b51a96c5_002Ddb2e_002D4562_002D9636_002D3b1d9411ff74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SearchItemTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=28075071_002D9c1b_002D4812_002Db22a_002De1e63cbd61c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SearchItemTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest2&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.BaseTest.InitializeAllPages&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b51a96c5_002Ddb2e_002D4562_002D9636_002D3b1d9411ff74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SearchItemTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.BaseTest.InitializeAllPages&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f845208c_002Dd145_002D47f1_002D8d73_002D1d0eb0fda587/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SearchItemTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.Tests.SearchItemTest2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::610C516E-E21E-4611-997E-78B11E524FB9::net5.0::FiestStore.BaseTest.InitializeAllPages&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Fiest/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

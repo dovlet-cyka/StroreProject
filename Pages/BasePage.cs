@@ -5,10 +5,10 @@ namespace FiestStore.Pages
 {
     public class BasePage 
     {
-        private readonly IPage _page;
-
         private const string WOMEN_BUTTON_CSS = "a[title='Women']";
-
+        
+        private readonly IPage _page;
+        
         public BasePage(IPage page)
         {
             _page = page;

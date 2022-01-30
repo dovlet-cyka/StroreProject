@@ -14,7 +14,6 @@ namespace FiestStore.Tests
         {
             await HomePage.SearchItem(SEARCH_ITEM_TEXT);
             await ItemPage.ValidateCorrectPage();
-            Assert.IsTrue(false);
         }
     }
 }

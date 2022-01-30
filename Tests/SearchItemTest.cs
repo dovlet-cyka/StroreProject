@@ -1,14 +1,14 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
 
+
 namespace FiestStore.Tests 
 {
-    [TestFixture]
-    [Parallelizable(ParallelScope.Self)]
+    [TestFixture, Parallelizable(ParallelScope.Children)]
     public class SearchItemTest : BaseTest
     {
         private const string SEARCH_ITEM_TEXT = "T-shirt";
-        
+
         [Test]
         public async Task SearchItem()
         {

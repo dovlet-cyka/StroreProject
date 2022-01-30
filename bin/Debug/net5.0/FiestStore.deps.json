@@ -20,6 +20,7 @@
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "Microsoft.Playwright": "1.17.3",
+          "Microsoft.Playwright.NUnit": "1.17.3",
           "NUnit": "3.13.1",
           "NUnit3TestAdapter": "3.17.0",
           "coverlet.collector": "3.0.2"
@@ -535,6 +536,20 @@
         },
         "runtime": {
           "lib/net5.0/Microsoft.Playwright.dll": {
+            "assemblyVersion": "1.17.3.0",
+            "fileVersion": "1.17.3.0"
+          }
+        }
+      },
+      "Microsoft.Playwright.NUnit/1.17.3": {
+        "dependencies": {
+          "Microsoft.NET.Test.Sdk": "16.9.4",
+          "Microsoft.Playwright": "1.17.3",
+          "NUnit": "3.13.1",
+          "NUnit3TestAdapter": "3.17.0"
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Playwright.NUnit.dll": {
             "assemblyVersion": "1.17.3.0",
             "fileVersion": "1.17.3.0"
           }
@@ -1746,6 +1761,13 @@
       "sha512": "sha512-lIO3SvtCnhNtb6tHwbEktG8aowQoU98D4GGuXvy1e5ww2yHlqi8ZaEhehIbiMQfe/TJc6V9QVrOfKAEYoQ3/oA==",
       "path": "microsoft.playwright/1.17.3",
       "hashPath": "microsoft.playwright.1.17.3.nupkg.sha512"
+    },
+    "Microsoft.Playwright.NUnit/1.17.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YgUIVjTifqVz//ZBjw+sNBpf6uYYhqyKrdXSQUI3ICMh/qsRciVrRmCZZbINF+tsrE+Eo6xVqRjxVeJQuE//Cw==",
+      "path": "microsoft.playwright.nunit/1.17.3",
+      "hashPath": "microsoft.playwright.nunit.1.17.3.nupkg.sha512"
     },
     "Microsoft.TestPlatform.ObjectModel/16.9.4": {
       "type": "package",

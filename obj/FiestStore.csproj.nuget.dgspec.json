@@ -86,6 +86,10 @@
               "target": "Package",
               "version": "[1.17.3, )"
             },
+            "Microsoft.Playwright.NUnit": {
+              "target": "Package",
+              "version": "[1.17.3, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.1, )"
@@ -110,9 +114,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

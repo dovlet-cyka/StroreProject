@@ -14,9 +14,9 @@ namespace FiestStore.Pages
             _page = page;
         }
 
-        public async Task SearchItem(string searchText)
+        public async Task SearchItem(string searchItemValue)
         {
-            await _page.FillAsync(SEARCH_ITEMS_INPUT_CSS, searchText);
+            await _page.FillAsync(SEARCH_ITEMS_INPUT_CSS, searchItemValue);
             await _page.PressAsync(SEARCH_ITEMS_INPUT_CSS, "Enter");
         }
     }

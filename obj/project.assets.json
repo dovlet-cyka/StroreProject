@@ -701,6 +701,21 @@
           "buildTransitive/Microsoft.Playwright.targets": {}
         }
       },
+      "Microsoft.Playwright.NUnit/1.17.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NET.Test.Sdk": "16.5.0",
+          "Microsoft.Playwright": "1.17.3",
+          "NUnit": "3.12.0",
+          "NUnit3TestAdapter": "3.16.1"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Playwright.NUnit.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Playwright.NUnit.dll": {}
+        }
+      },
       "Microsoft.TestPlatform.ObjectModel/16.9.4": {
         "type": "package",
         "dependencies": {
@@ -3727,6 +3742,22 @@
         "lib/netstandard2.0/Microsoft.Playwright.xml",
         "microsoft.playwright.1.17.3.nupkg.sha512",
         "microsoft.playwright.nuspec"
+      ]
+    },
+    "Microsoft.Playwright.NUnit/1.17.3": {
+      "sha512": "YgUIVjTifqVz//ZBjw+sNBpf6uYYhqyKrdXSQUI3ICMh/qsRciVrRmCZZbINF+tsrE+Eo6xVqRjxVeJQuE//Cw==",
+      "type": "package",
+      "path": "microsoft.playwright.nunit/1.17.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net48/Microsoft.Playwright.NUnit.dll",
+        "lib/net5.0/Microsoft.Playwright.NUnit.dll",
+        "lib/net5.0/Microsoft.Playwright.NUnit.runtimeconfig.json",
+        "lib/netcoreapp3.1/Microsoft.Playwright.NUnit.dll",
+        "lib/netcoreapp3.1/Microsoft.Playwright.NUnit.runtimeconfig.json",
+        "microsoft.playwright.nunit.1.17.3.nupkg.sha512",
+        "microsoft.playwright.nunit.nuspec"
       ]
     },
     "Microsoft.TestPlatform.ObjectModel/16.9.4": {
@@ -7623,6 +7654,7 @@
       "Microsoft.Extensions.Hosting.Abstractions >= 6.0.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "Microsoft.Playwright >= 1.17.3",
+      "Microsoft.Playwright.NUnit >= 1.17.3",
       "NUnit >= 3.13.1",
       "NUnit3TestAdapter >= 3.17.0",
       "coverlet.collector >= 3.0.2"
@@ -7713,6 +7745,10 @@
             "target": "Package",
             "version": "[1.17.3, )"
           },
+          "Microsoft.Playwright.NUnit": {
+            "target": "Package",
+            "version": "[1.17.3, )"
+          },
           "NUnit": {
             "target": "Package",
             "version": "[3.13.1, )"
@@ -7737,9 +7773,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
